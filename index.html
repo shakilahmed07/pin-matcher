@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input class="form-control" type="text">
+                    <input id="pin-generator" class="form-control" type="text">
                     <button class="generate-btn">Generate Pin</button>
                 </div>
             </div>
@@ -54,5 +54,18 @@
             <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
+    <script>
+        function getPinMatcher(){
+            const random = Math.random() * 10000;
+            const pin = (random + "").split('.')[0];
+
+            if(pin.length === 4){
+                return pin;
+            }else{
+                console.log('3 digit number', pin);
+                return getPinMatcher();
+            }
+        }
+    </script>
 </body>
 </html>
